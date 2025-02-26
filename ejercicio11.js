@@ -1,21 +1,21 @@
-// alert("Diagnóstico de problemas en la computadora");
+alert("Diagnóstico de problemas en la computadora");
 
-// let pitido, disco;
+function preguntar(mensaje) {
+  let respuesta = prompt(mensaje);
+  return (respuesta === "si" || respuesta === "no") ? respuesta : preguntar(mensaje);
+}
 
-// while (true) {
-//   pitido = prompt("¿La computadora emite un pitido al iniciar? (si/no):");
-//   disco = prompt("¿El disco duro gira? (si/no):");
+function diagnostico() {
+  let pitido = preguntar("¿La computadora emite un pitido al iniciar? (si/no):");
+  let disco = preguntar("¿El disco duro gira? (si/no):");
 
-//   if ((pitido === "si" || pitido === "no") && (disco === "si" || disco === "no")) {
-//     break; 
-//   }
+  let mensaje =
+    pitido === "si" && disco === "si" ? "La computadora está averiada. Contacte con el técnico." :
+    pitido === "si" && disco === "no" ? "Verifique contactos de la unidad." :
+    pitido === "no" && disco === "no" ? "Lleve la computadora a la central para reparación." :
+    "Compruebe las conexiones de altavoces.";
 
-//   alert("Por favor, responde solo con 'si' o 'no'.");
-// }
+  alert(mensaje);
+}
 
-// alert(
-//   pitido === "si" && disco === "si" ? "La computadora está averiada. Póngase en contacto con el técnico de apoyo." :
-//   pitido === "si" && disco === "no" ? "Verificar contactos de la unidad." :
-//   pitido === "no" && disco === "no" ? "Traiga la computadora para repararla en la central." :
-//   "Compruebe las conexiones de altavoces."
-// );
+diagnostico();

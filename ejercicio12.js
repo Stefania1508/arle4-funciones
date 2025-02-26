@@ -1,20 +1,18 @@
-// const modelosDefectuosos = [119, 179, 189, 190, 191, 192, 193, 194, 195, 221, 780];
+const modelosDefectuosos = [119, 179, 189, 190, 191, 192, 193, 194, 195, 221, 780];
 
-// let modelo;
+function obtenerModelo() {
+  let modelo = prompt("Ingrese el número de modelo de su automóvil:");
 
-// while (true) {
-//   modelo = prompt("Ingrese el número de modelo de su automóvil:");
-  
-//   if (modelo && modelo == Number(modelo)) {
-//     modelo = Number(modelo);
-//     break; 
-//   }
+  return modelo && !isNaN(modelo) ? Number(modelo) : obtenerModelo();
+}
 
-//   alert("Por favor, ingrese solo números.");
-// }
+function verificarDefecto() {
+  let modelo = obtenerModelo();
 
-// alert(
-//   modelosDefectuosos.includes(modelo)
-//     ? "El automóvil está defectuoso, llevar a garantía."
-//     : "Su automóvil no está defectuoso."
-// );
+  alert(modelosDefectuosos.includes(modelo) 
+    ? "El automóvil está defectuoso, llevar a garantía." 
+    : "Su automóvil no está defectuoso."
+  );
+}
+
+verificarDefecto();
